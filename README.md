@@ -1,31 +1,29 @@
-# 🚀 Smart Resume Analyzer & Job Recommender
+# Smart Resume Analyzer & Job Recommender
 
-A premium, AI-powered web application that analyzes PDF resumes, extracts skills, provides a brutally honest "roast," prepares you for interviews, and suggests level-appropriate job matches.
+An AI-driven tool for resume analysis, skill extraction, and automated job matching.
 
-![UI Design](https://raw.githubusercontent.com/SMdaniyal687/resume_analyzer/main/static/screenshot.png) *(Note: Add a real screenshot later)*
+## Features
 
-## ✨ Key Features
+- **Resume Analysis:** Constructive feedback on resume structure, impact, and content.
+- **Job Matching:** Real-time job fetching from Adzuna, Remotive, and RemoteOK, filtered by candidate experience level.
+- **Interview Preparation:** Generates behavioral and technical questions based on resume content, including an answer evaluation tool.
+- **Skill Extraction:** NLP-based identification of technical and soft skills.
+- **Document Processing:** PDF text extraction and automated cover letter generation.
+- **UI:** Dark-themed dashboard with animated transitions.
 
-- **🔥 Resume Roaster:** Get brutally honest, constructive feedback on your resume's weaknesses and strengths.
-- **💼 Smart Job Matching:** Real-time job listings from Adzuna, Remotive, and RemoteOK, scored and ranked specifically for your experience level.
-- **🎯 Interview Prep Coach:** Generates behavioral and technical questions tailored to your background, with an interactive answer evaluator.
-- **📊 Skill Extraction:** Automatically identifies technical and soft skills using NLP.
-- **✍️ AI Rebuilder:** Rewrites weak bullet points and generates a tailored cover letter.
-- **🎨 Premium UI:** Modern, animated "Aurora" dark theme with glassmorphic elements.
+## Technical Stack
 
-## 🛠️ Tech Stack
+- **Backend:** FastAPI
+- **Frontend:** Vanilla JS / CSS / HTML
+- **LLM:** Groq (Llama 3.3)
+- **Parsing:** pdfplumber, spaCy
+- **Data Sources:** Adzuna, Remotive, RemoteOK APIs
 
-- **Backend:** FastAPI (Python)
-- **Frontend:** Vanilla HTML/CSS/JS (with marked.js)
-- **AI Engine:** Groq (Llama 3.3 70B)
-- **NLP/Parsing:** spaCy, pdfplumber
-- **APIs:** Adzuna, Remotive, RemoteOK
+## Setup
 
-## 🚀 Getting Started
-
-### 1. Prerequisites
+### 1. Requirements
 - Python 3.9+
-- A Groq API Key (Get it at [console.groq.com](https://console.groq.com))
+- Groq API Key
 
 ### 2. Installation
 ```bash
@@ -35,27 +33,22 @@ pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 ```
 
-### 3. Configuration
-Create a `.env` file in the root directory:
+### 3. Environment Variables
+Create a `.env` file in the root:
 ```env
-GROQ_API_KEY=your_groq_api_key_here
-
-# Optional (for better job search results)
-ADZUNA_APP_ID=your_id
-ADZUNA_APP_KEY=your_key
+GROQ_API_KEY=your_key
+ADZUNA_APP_ID=optional_id
+ADZUNA_APP_KEY=optional_key
 ```
 
-### 4. Run the App
+### 4. Usage
 ```bash
 python -m uvicorn main:app --reload
 ```
-Visit `http://localhost:8000` in your browser.
+Access the application at `http://localhost:8000`.
 
-## 📁 Project Structure
-- `main.py`: FastAPI entry point and routes.
-- `utils/`: Core logic modules (LLM client, parsing, fetching, etc.).
-- `static/`: Frontend assets (HTML, CSS, JS).
-- `requirements.txt`: Project dependencies.
-
-## 📝 License
-This project is for educational purposes. Feel free to use and modify it!
+## Project Structure
+- `main.py`: Application entry point and API endpoints.
+- `utils/`: Logic for PDF parsing, skill extraction, and LLM interaction.
+- `static/`: Frontend assets.
+- `requirements.txt`: Python dependencies.
