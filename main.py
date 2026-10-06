@@ -14,10 +14,15 @@ from utils.job_matcher import match_and_rank
 from utils.resume_roaster import roast_resume
 from utils.interview_coach import generate_interview_prep, evaluate_answer
 
-app = FastAPI()
+app = FastAPI(title="Smart Resume Analyzer")
 
 # Mount the static directory
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+
+@app.get("/healthz")
+async def health_check():
+    return {"status": "ok"}
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -135,4 +140,5 @@ async def evaluate_answer_endpoint(
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
