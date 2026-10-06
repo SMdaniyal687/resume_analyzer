@@ -5,6 +5,7 @@ from typing import Optional
 import uvicorn
 import shutil
 import os
+import tempfile
 
 from utils.pdf_parser import extract_text_from_pdf
 from utils.skill_extractor import extract_skills
@@ -37,7 +38,7 @@ async def analyze_resume(
     experience_level: Optional[str] = Form("Auto-Detect"),
     location: Optional[str] = Form("India"),
 ):
-    temp_file = f"temp_{file.filename}"
+    temp_file = os.path.join(tempfile.gettempdir(), "temp_" + os.path.basename(file.filename))"
     with open(temp_file, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
@@ -88,7 +89,7 @@ async def roast_endpoint(
     target_role: Optional[str] = Form(""),
     experience_level: Optional[str] = Form("Auto-Detect"),
 ):
-    temp_file = f"temp_{file.filename}"
+    temp_file = os.path.join(tempfile.gettempdir(), "temp_" + os.path.basename(file.filename))"
     with open(temp_file, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
@@ -111,7 +112,7 @@ async def interview_prep_endpoint(
     target_role: Optional[str] = Form(""),
     experience_level: Optional[str] = Form("Auto-Detect"),
 ):
-    temp_file = f"temp_{file.filename}"
+    temp_file = os.path.join(tempfile.gettempdir(), "temp_" + os.path.basename(file.filename))"
     with open(temp_file, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
