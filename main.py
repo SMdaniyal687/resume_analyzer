@@ -38,7 +38,7 @@ async def analyze_resume(
     experience_level: Optional[str] = Form("Auto-Detect"),
     location: Optional[str] = Form("India"),
 ):
-    temp_file = os.path.join(tempfile.gettempdir(), "temp_" + os.path.basename(file.filename))"
+    temp_file = os.path.join(tempfile.gettempdir(), "temp_" + os.path.basename(file.filename))
     with open(temp_file, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
@@ -89,7 +89,7 @@ async def roast_endpoint(
     target_role: Optional[str] = Form(""),
     experience_level: Optional[str] = Form("Auto-Detect"),
 ):
-    temp_file = os.path.join(tempfile.gettempdir(), "temp_" + os.path.basename(file.filename))"
+    temp_file = os.path.join(tempfile.gettempdir(), "temp_" + os.path.basename(file.filename))
     with open(temp_file, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
@@ -112,7 +112,7 @@ async def interview_prep_endpoint(
     target_role: Optional[str] = Form(""),
     experience_level: Optional[str] = Form("Auto-Detect"),
 ):
-    temp_file = os.path.join(tempfile.gettempdir(), "temp_" + os.path.basename(file.filename))"
+    temp_file = os.path.join(tempfile.gettempdir(), "temp_" + os.path.basename(file.filename))
     with open(temp_file, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
